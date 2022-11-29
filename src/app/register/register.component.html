@@ -2,18 +2,29 @@
     <div class="col-4">
     </div>
 
-    <div class="col-4 container w-25 mt-5 text-center bg-white pb-3  border rounded-3 " style="box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px ;" > 
+    <div class="col-4 container w-25 mt-5 text-center bg-white pb-3 ps-4 pe-4  border rounded-3 " style="box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px ;" > 
         <h4 class="mt-4">MY Bank</h4>
+       <img class="mt-2" src="../../assets/images/bank-icon--iconfinder-4.jpg" alt="" srcset="" style="height:90px; width:fit-content; " >
+       <h6  class="text-secondary mt-2">{{aim}}</h6>
 
-            <div><input id="reg_uname" class="form-control mt-3" type="text" placeholder="User Name"></div>
-            <div><input id="reg_accno" class="form-control mt-3" type="text" placeholder="Account number"></div>
-            <div><input id="password" class="form-control mt-3" type="text" placeholder="password"></div>
+       <form [formGroup]="registerForm" action="">`
 
-            <button onclick="register()" class="btn btn-primary mt-4 mb-2"> Register</button><br>
-            <a class="text-decoration-none mt-4" href="index.html">Sign in</a>
 
+
+            <div><input formControlName="uname" id="reg_uname" [(ngModel)]="uname" class="form-control mt-3" type="text" placeholder="User Name"></div>
+            <div><input formControlName="acno" id="reg_accno" [(ngModel)]="acno" class="form-control mt-3" type="text" placeholder="Account number"></div>
+            <div><input formControlName="pswd" id="password" [(ngModel)]="pswd" class="form-control mt-3" type="text" placeholder="password"></div>
+
+            <button (click)="register()" class="btn btn-primary mt-4 mb-2"> Register</button><br>
+
+           <div class="mt-2 mb-2"> <p class="mb-0 text-secondary">Already have an account?
+             <a class="text-decoration-none" routerLink="">Sign in</a>
+            </div>
+
+        </form>
 
         </div>
+   
 
     <div class="col-4">
     </div>

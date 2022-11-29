@@ -13,7 +13,7 @@
 
     Basic Concepts
 
-    1)Data Binding - Share data b/w components
+ 1)Data Binding - Share data b/w components
 
     ts---> component
     html---> view
@@ -30,7 +30,51 @@
 
             i)event binding (1direction ) - (event_name) ="function_name()"
             ii)event binding using $event (event_name)= "function_name($event)"
+            iii)event binding using template reference variable - #variable_name
 
+    b) Two way data binding (Two direction) - ts--> html, html-->ts
+
+            i)ngModel - FormsModule in app.module.ts - [(ngModel)]= "proprty_name"      
+
+
+ 2) Angular Routing
+
+    to set path for a component
+    {
+        path:"value" , component:class_name
+    }
+
+    eg: login
+
+    {
+        path: '', component: LoginComponent   
+    }
+
+3) Dependency Injection
+
+To share data b/w two dependend classes-
+
+    constructor (private router:Router)
+    eg: Router class- navigateBYUrl is used to navigate the Component_name
+
+4)Angular Services
+
+    to hold redundant data
+    ng g s sevice_name
+
+5)Angular directives - To manipulate DOM
+
+    a)Component Directives(array)
+    b) Structural direction(table)
+        1) *ngFor=""
+
+6)Angular FormsModule
+    a)Template Driven Forms (first design html page and cant do validation)
+    b)Model driven Forms(first design model in its file, easy validation mthds)
+     - Advanced Validation
+     1)Reactive Forms
+     from group,aray,control
+     we can directly add validations via importing Reactive form module
 
         
 

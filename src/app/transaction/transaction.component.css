@@ -1,0 +1,9 @@
+
+tr,th,td{
+    border: 1px solid rebeccapurple;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +18,9 @@ export class LoginComponent implements OnInit { //(3rd execution)
   //propertie /variables
   //undefined mthds (4th execution)
 
-  userDetails:any={
-    1000:{acno:1000,pswd:'abcd', balance:1000},
-    1001:{acno:1001,pswd:'1234', balance:1000},
-    1002:{acno:1002,pswd:'ABCD', balance:1000},
-    1003:{acno:1003,pswd:'1111', balance:1000}
-    
-  }
 
-  constructor() { }  //(1st execution)
+
+  constructor( private ds:DataService, private router:Router) { }  //(1st execution)
   //it automatically invokes when the obect is created.
 
   ngOnInit(): void {  //( 2nd execution)
@@ -32,10 +28,12 @@ export class LoginComponent implements OnInit { //(3rd execution)
     //lifecucle hook of angular
   }
 
+/*event binding using $event------------
+
   login(){
     // alert('Login clicked')
-    var acno=this.acno;
-    var pswd=this.pswd;
+    var acno=this.acno;  //1000
+    var pswd=this.pswd;  //1000
     var userDetails=this.userDetails;
 
     if(acno in userDetails){
@@ -49,6 +47,48 @@ export class LoginComponent implements OnInit { //(3rd execution)
     else{
       alert('invalid user details')
     }
+  }
+*/
+
+/*event binding using template reference variable--------
+
+  login(a:any, p:any){
+    // alert('Login clicked')
+    var acno=a.value;  //1000
+    var pswd=p.value;  //1000
+    var userDetails=this.userDetails;
+
+    if(acno in userDetails){
+      if(pswd==userDetails[acno]['pswd']){
+        alert('Login succesfully')
+      }
+      else{
+        alert('invalid password')
+      }
+    }
+    else{
+      alert('invalid user details')
+    }
+  }
+*/
+
+
+//ngModel(Two direction)-----------------------
+
+  login(){
+    // alert('Login clicked')
+    var acno=this.acno;  //1000
+    var pswd=this.pswd;  //1000
+    const result=this.ds.login(acno, pswd)
+
+      if(result){
+        alert('Login succesfully')
+        this.router.navigateByUrl('dashboard')
+      }
+      else{
+        alert('invalid password')
+      }
+    
   }
 
   acnoChange(event:any){

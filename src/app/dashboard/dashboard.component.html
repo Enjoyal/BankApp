@@ -1,0 +1,49 @@
+
+<div class="ms-3 mt-2">
+    <h3>Welcome {{user}} </h3>
+    <a  routerLink="/transaction"> View transaction history</a>
+</div>
+        
+<div class="parent row ">
+    <div class="child col-6">
+       
+        
+            <div class="container w-50 mt-5 text-center bg-white pb-3  border rounded-3 " style=" box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px ;" > 
+                <h4 class="mt-4">Deposit</h4>
+               
+                    <div><input id="dep_accno" [(ngModel)]="acno" class="form-control mt-3" type="text" placeholder="Account number"></div>
+                    <div><input id="dep_password" [(ngModel)]="pswd" class="form-control mt-3" type="text" placeholder="password"></div>
+                    <div><input id="dep_amount" [(ngModel)]="amount" class="form-control mt-3" type="text" placeholder="amount"></div>
+
+        
+                    <button (click)="deposit()" class="btn btn-primary mt-4 mb-2"> Deposit</button><br>
+                    <!-- <a class="text-decoration-none mt-4" routerLink="">Sign in</a> -->
+        
+        
+                </div>
+        
+        </div>
+        <!-- <script src="bank.js"></script> -->
+        
+    <div class="child col-6">
+        
+        
+            <div class=" container w-50 mt-5 text-center bg-white pb-3  border rounded-3 " style="box-shadow:rgba(0, 0, 0, 0.1) 0px 4px 12px ;" > 
+                <h4 class="mt-4">Withdraw</h4>
+        
+                    <div><input id="with_accno" [(ngModel)]="acno1" class="form-control mt-3" type="text" placeholder="Account number"></div>
+                    <div><input id="with_password" [(ngModel)]="pswd1" class="form-control mt-3" type="text" placeholder="password"></div>
+                    <div><input id="with_amount" [(ngModel)]="amount1" class="form-control mt-3" type="text" placeholder="amount"></div>
+
+        
+                    <button (click)="withdraw()" class="btn btn-primary mt-4 mb-2"> Withdraw</button><br>
+                    <!-- <a class="text-decoration-none mt-4" routerLink="">Sign in</a> -->
+        
+        
+                </div>
+        
+           
+        
+        </div>
+        <!-- <script src="bank.js"></script> -->
+</div>
